@@ -45,11 +45,15 @@ o Facebook criou uma arquitetura para o ReactJs, que é um framework desenvolvid
     - Usa os métodos públicos nas lojas para obtenção dos novos dados.
 
 - O redux é uma implementação desse padrão e não é exclusiva ao ReactJs, é aplicável a várias outras aplicações em JavaScript, como Veuex para Veu.js, NgRx Angula .js, dentre outros. E basicamente abstrai partes do processo do Flux, e carrega otimizações na implementação do Flux.
-Introduz três princípios básicos, fonte única da verdade, o estado de todo o aplicativo é armazenado em uma árvore de objetos com um único armazenamento.
-Estado é somente leitura, a única maneira de mudar o estado é emitir uma ação, e um  objeto que descreve o que mudou.
 
-- Alterações são feitas com funções puras, para especificar como árvore de estados é transformada por ações, entenda redutores puros.
-Redutores calcula o novo estado com base no estado anterior, esse é um conceito fundamental de programação funcional.
+- Introduz três princípios básicos:
+    - Fonte única da verdade:
+        - O estado de todo o aplicativo é armazenado em uma árvore de objetos com um único armazenamento.
+    - Estado é somente leitura:
+        - A única maneira de mudar o estado é emitir uma ação, e um  objeto que descreve o que mudou.
+    - Alterações são feitas com funções puras:
+        - Para especificar como árvore de estados é transformada por ações, entenda isso como redutores puros.
+        - Redutores calcula o novo estado com base no estado anterior, esse é um conceito fundamental de programação funcional.
 
 - Refências:
     - Erich Gamma ... [et al.], Padrões de projeto : soluções reutilizáveis de software orientado a objetos. tradução Luiz A. Meirelles
