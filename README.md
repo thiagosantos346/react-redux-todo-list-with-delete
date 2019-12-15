@@ -92,7 +92,7 @@ Nóbrega Tortello ; revisão técnica: Alexandre Carissimi. – 5. ed. – Porto
 
 #### Nesse momento deve existir essa estrutura de pastas:
 
-`
+```
 todoapp
 ├── README.md
 ├── node_modules
@@ -110,11 +110,11 @@ todoapp
     ├── index.js
     ├── logo.svg
     └── serviceWorker.js
-`
+```
     
 #### Remova alguns arquivos para que chegue a essa é a nova estrutura:
 
-`
+```
 todoapp
 ├── README.md
 ├── node_modules
@@ -126,12 +126,12 @@ todoapp
 └── src
     ├── index.js
     └── serviceWorker.js
-`
+```
 
 
 #### Adicione alguns arquivos, para que você tenha essa estrutura de arquivos.
 
-`
+```
 todoapp
 ├── README.md
 ├── node_modules
@@ -161,7 +161,7 @@ todoapp
     │    └── visibilityFilter.js
     ├── index.js
     └── serviceWorker.js
-`
+```
 
 
 ## Agora vamos criar o nosso ponto de entrada da aplicação:
@@ -170,7 +170,7 @@ todoapp
 ###### src/index.js
 
 
-```python
+```javascript
 import React from 'react'
 import { render } from 'react-dom'
 import { createStore } from 'redux'
@@ -194,7 +194,7 @@ render(
 ###### src/components/App.js
 
 
-```python
+```javascript
 import React from 'react'
 import Footer from './Footer'
 import AddTodo from '../containers/AddTodo'
@@ -214,7 +214,7 @@ export default App
 ###### src/components/Footer.js
 
 
-```python
+```javascript
 import React from 'react'
 import FilterLink from '../containers/FilterLink'
 import { VisibilityFilters } from '../actions'
@@ -243,7 +243,7 @@ export default Footer
 ###### src/components/Link.js
 
 
-```python
+```javascript
 import React from 'react'
 import PropTypes from 'prop-types'
 
@@ -271,7 +271,7 @@ export default Link
 ###### src/components/Todo.js
 
 
-```python
+```javascript
 import React from 'react'
 import PropTypes from 'prop-types'
 
@@ -298,7 +298,7 @@ export default Todo
 ###### src/components/TodoDeleteButton.js
 
 
-```python
+```javascript
 import React from 'react'
 import PropTypes from 'prop-types'
 
@@ -323,7 +323,7 @@ export default TodoDeleteButton
 ###### src/components/TodoList.js
 
 
-```python
+```javascript
 import React from 'react'
 import PropTypes from 'prop-types'
 import Todo from './Todo'
@@ -367,7 +367,7 @@ export default connect(deleteTodo)(TodoList)
 ###### src/actions/index.js
 
 
-```python
+```javascript
 let nextTodoId = 0
 
 export const addTodo = text => ({
@@ -411,7 +411,7 @@ export const VisibilityFilters = {
 ###### Como vamos usar mais de um redutor, então usamos o método contido em {combineReducers}, para juntar os redutores, e garantir que tenhamos uma única fonte de dados, e ainda assim podermos modularizar a aplicação.
 
 
-```python
+```javascript
 import { combineReducers } from 'redux'
 import todos from './todos'
 import visibilityFilter from './visibilityFilter'
@@ -434,7 +434,7 @@ export default combineReducers({
 ###### src/actions/todos.js
 
 
-```python
+```javascript
 const todos = (state = [], action) => {
   switch (action.type) {
     case 'ADD_TODO':
@@ -474,7 +474,7 @@ export default todos
 ###### src/actions/visibilityFilter.js
 
 
-```python
+```javascript
 import { VisibilityFilters } from '../actions'
 
 const visibilityFilter = (state = VisibilityFilters.SHOW_ALL, action) => {
@@ -498,7 +498,7 @@ export default visibilityFilter
 ###### src/containers/addTodo.js
 
 
-```python
+```javascript
 import React from 'react'
 import { connect } from 'react-redux'
 import { addTodo } from '../actions'
@@ -531,7 +531,7 @@ export default connect()(AddTodo)
 ###### src/containers/FilterLink.js
 
 
-```python
+```javascript
 import { connect } from 'react-redux'
 import { setVisibilityFilter } from '../actions'
 import Link from '../components/Link'
@@ -554,7 +554,7 @@ export default connect(
 ###### src/containers/FilterLink.js
 
 
-```python
+```javascript
 import { connect } from 'react-redux'
 import { toggleTodo } from '../actions'
 import TodoList from '../components/TodoList'
