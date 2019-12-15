@@ -55,17 +55,6 @@ o Facebook criou uma arquitetura para o ReactJs, que é um framework desenvolvid
         - Para especificar como árvore de estados é transformada por ações, entenda isso como redutores puros.
         - Redutores calcula o novo estado com base no estado anterior, esse é um conceito fundamental de programação funcional.
 
-- Refências:
-    - Erich Gamma ... [et al.], Padrões de projeto : soluções reutilizáveis de software orientado a objetos. tradução Luiz A. Meirelles
-Salgado. – Dados eletrônicos. – Porto Alegre : Bookman, 2007.
-    - George Coulouris ... [et al.], Sistemas distribuídos : conceitos e projeto, radução: João Eduardo
-Nóbrega Tortello ; revisão técnica: Alexandre Carissimi. – 5. ed. – Porto Alegre : Bookman, 2013.
-    - Flux Overview, 05, jul. 2019. Disponível em: <https://facebook.github.io/flux/docs/overview>. Acesso em: 14, dez. 2019.
-    - Getting Started with Redux, 02, dez. 2019. Disponível em: <https://redux.js.org/introduction/getting-started>. Acesso em: 14, dez. 2019.
-    - Quick Start, 22, jun. 2019. Disponível em: <https://react-redux.js.org/introduction/quick-start>. Acesso em: 14, dez. 2019.
-    - Redux Todos Example, 23 abr. 2019. Disponível em: <https://github.com/reduxjs/redux/tree/master/examples/todos>. Acesso em: 14, dez. 2019.
-
-
 
 # Todo List - React-Redux
 
@@ -599,3 +588,13 @@ export default connect(
 ### Experimente executar aplicação 
     - npm start
 ##### Nesse ponto é possível notar que em momento algum os métodos são invocados diretamente.
+
+- Refências:
+    - Erich Gamma ... [et al.], Padrões de projeto : soluções reutilizáveis de software orientado a objetos. tradução Luiz A. Meirelles
+Salgado. – Dados eletrônicos. – Porto Alegre : Bookman, 2007.
+    - George Coulouris ... [et al.], Sistemas distribuídos : conceitos e projeto, radução: João Eduardo
+Nóbrega Tortello ; revisão técnica: Alexandre Carissimi. – 5. ed. – Porto Alegre : Bookman, 2013.
+    - Flux Overview, 05, jul. 2019. Disponível em: <https://facebook.github.io/flux/docs/overview>. Acesso em: 14, dez. 2019.
+    - Getting Started with Redux, 02, dez. 2019. Disponível em: <https://redux.js.org/introduction/getting-started>. Acesso em: 14, dez. 2019.
+    - Quick Start, 22, jun. 2019. Disponível em: <https://react-redux.js.org/introduction/quick-start>. Acesso em: 14, dez. 2019.
+    - Redux Todos Example, 23 abr. 2019. Disponível em: <https://github.com/reduxjs/redux/tree/master/examples/todos>. Acesso em: 14, dez. 2019.
