@@ -589,7 +589,7 @@ export default connect(
     - npm start
 ##### Nesse ponto é possível notar que em momento algum os métodos são invocados diretamente.
 
-- Refências:
+# Refências:
     - Erich Gamma ... [et al.], Padrões de projeto : soluções reutilizáveis de software orientado a objetos. tradução Luiz A. Meirelles
 Salgado. – Dados eletrônicos. – Porto Alegre : Bookman, 2007.
     - George Coulouris ... [et al.], Sistemas distribuídos : conceitos e projeto, radução: João Eduardo
