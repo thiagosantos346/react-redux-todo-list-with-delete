@@ -142,7 +142,7 @@ todoapp
     ├── containers
     │    ├── AddTodo.js
     │    ├── FilterLink.js
-    │     └── VisibleTodo.js
+    │    └── VisibleTodo.js
     │    
     ├── reducers
     │    ├── index.js
