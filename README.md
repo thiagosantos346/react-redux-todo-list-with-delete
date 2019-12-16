@@ -156,6 +156,7 @@ todoapp
 ## Agora vamos criar o nosso ponto de entrada da aplicação:
 
 ### Nesse ponto vamos, criar a nossa loja central, que contém todos os estados da aplicação.
+### O exemplo abaixo é uma adaptação de : <https://github.com/reduxjs/redux/tree/master/examples/todos>
 ###### src/index.js
 
 
