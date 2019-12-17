@@ -25,95 +25,49 @@ ou
 
 ## Instalando a biblioteca Redux
 ```npm install --save redux```
-    
-***
-[todoapp](https://github.com/thiagosantos346/react-redux-todo-list-with-delete/tree/master/todoapp)
 
-├── [README.md](https://github.com/thiagosantos346/react-redux-todo-list-with-delete/blob/master/README.md)
-
-├── [package.json](https://github.com/thiagosantos346/react-redux-todo-list-with-delete/blob/master/todoapp/package.json)
-
-├── [public](https://github.com/thiagosantos346/react-redux-todo-list-with-delete/tree/master/todoapp/public)
-
-│   ├── [index.html](https://github.com/thiagosantos346/react-redux-todo-list-with-delete/blob/master/todoapp/public/index.html)
-
-│   └── [manifest.json](https://github.com/thiagosantos346/react-redux-todo-list-with-delete/blob/master/todoapp/public/manifest.json)
-
-└── src
-
-    ├── actions
-    
-    │   └── index.js
-    
-    └─ components
-    
-    │   ├── [App.js][5]
-    
-    │   ├── Todo.js
-    
-    │   └── TodoList.js
-    
-    ├── containers
-    
-    │    └── AddTodo.js
-    
-    ├── reducers
-    
-    │    ├── index.js
-    
-    │    └── todo.js
-    
-    └── index.js
-    
-***
-
-## Agora vamos criar o nosso ponto de entrada da aplicação:
-
-### Nesse ponto vamos, criar a nossa loja central, que contém todos os estados da aplicação.
 ### O exemplo abaixo é uma adaptação de : <https://github.com/reduxjs/redux/tree/master/examples/todos>
 ###### src/index.js
 
 - [Introduz três princípios básicos:](https://redux.js.org/introduction/three-principles#three-principles)
 
-    - Fonte única da verdade:
+    ###### [Fonte única da verdade](https://redux.js.org/introduction/three-principles#single-source-of-truth)
     
 ```javascript
 import React from 'react'
 import { render } from 'react-dom'
-// Note que é necesssario importar o createStrore do redux
+```
+*Note que é necesssario importar o createStrore do redux*
+
+```javascript
 import { createStore } from 'redux'
-// Note que é nessario importa o Provider do react-redux
+```
+*Note que é nessario importa o Provider do react-redux*
+```javascript
 import { Provider } from 'react-redux'
 import App from './components/App'
 import rootReducer from './reducers'
+```
 
-/*
-* Para garantir esse princípio, no app de entrada do react 
-* construimos esse objeto store, que será responsavel por
-* centralizar os estados da aplicação.
-*/
+*Para garantir esse princípio, no app de entrada do react construimos esse objeto store, que será responsavel por centralizar os estados da aplicação.*
 
+```javascript
 const store = createStore(rootReducer)
 
 render(
-    // Para que os componentes do react, tenha acesso aos estados
-    // devemos passar o objeto store para o componente <Provider> </Provider> 
-    // e adicionarmos o componente <App/>.
   <Provider store={store}>
     <App />
   </Provider>,
   document.getElementById('root')
 )
 ```
+*Para que os componentes do react, tenham acesso aos estados devemos passar o objeto store para o componente: * ```<Provider </Provider>``` *e adicionarmos o componente:* ```<App/>``` *, interno ao provider, veja o codigo abaixo. .
     
     - Estado é somente leitura:
     - Alterações são feitas com funções puras:
-
-
-
-
+    
 ## Vamos criar os nossos componentes:
-[1]: src/components/App.js
+[src/components/App.js](~/react-redux-todo-list-with-delete/blob/master/todoapp/src/index.js)
 
 
 ```javascript
