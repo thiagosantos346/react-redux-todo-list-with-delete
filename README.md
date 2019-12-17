@@ -1,83 +1,36 @@
 
-- Introduz três princípios básicos:
-    - Fonte única da verdade:
-        - O estado de todo o aplicativo é armazenado em uma árvore de objetos com um único armazenamento.
-    - Estado é somente leitura:
-        - A única maneira de mudar o estado é emitir uma ação, e um  objeto que descreve o que mudou.
-    - Alterações são feitas com funções puras:
-        - Para especificar como árvore de estados é transformada por ações, entenda isso como redutores puros.
-        - Redutores calcula o novo estado com base no estado anterior, esse é um conceito fundamental de programação funcional.
-
 
 # Todo List - React-Redux
-
+****
 ## Criando a aplicação ReactJs
 
-- Primeiro certifique-se que você tenha o Node.js instalado em sua máquina, abra um terminal e execute o comando:
-
-    - node --version
-
-- Se retornar um erro tente fazer a instalação seguindo as recomendações da página oficial do node em https://nodejs.org/.
+###### Primeiro certifique-se que você tenha o Node.js instalado em sua máquina, abra um terminal e execute o comando:
+    ```node --version```
+###### Se o node estiver instaldo, algo como ```v13.3.0```, para instalar [node](https://nodejs.org/) .
  
 - Primeiro vamos criar uma aplicação React npx create-react-app [Nome-Aplicação]:
     - npx create-react-app todoapp
 - Agora usando o terminal entre na pasta que contém o nome da aplicação feita no passo anterior.
-    - cd todoapp [Linux]
-    - dir todoapp [Windows]
-- Agora vamos iniciar a aplicação para testar se ocorreu tudo bem.
-    - npm start
+    
+    ```cd todoapp``` 
+    ###### Linux
+    ```dir todoapp``` 
+    ###### Windows
+    
+- Agora vamos iniciar a aplicação para testar se ocorreu tudo bem.     
+
+```npm start```
+ou
+```yarn start```
+
 
 ## Instalando a biblioteca Redux
     - npm install --save redux
-
-# Cirando a nova estrutura:
-
-#### Nesse momento deve existir essa estrutura de pastas:
-```
-todoapp
-├── README.md
-├── node_modules
-├── package.json
-├── .gitignore
-├── public
-│   ├── favicon.ico
-│   ├── index.html
-│   └── manifest.json
-└── src
-    ├── App.css
-    ├── App.js
-    ├── App.test.js
-    ├── index.css
-    ├── index.js
-    ├── logo.svg
-    └── serviceWorker.js
-```
     
-#### Remova alguns arquivos para que chegue a essa é a nova estrutura:
-
-```
+***
 todoapp
-├── README.md
-├── node_modules
+├── [README.md](https://github.com/thiagosantos346/react-redux-todo-list-with-delete/blob/master/README.md)
 ├── package.json
-├── .gitignore
-├── public
-│   ├── index.html
-│   └── manifest.json
-└── src
-    ├── index.js
-    └── serviceWorker.js
-```
-
-
-#### Adicione alguns arquivos, para que você tenha essa estrutura de arquivos.
-
-todoapp
-
-├── README.md
-├── node_modules
-├── package.json
-├── .gitignore
 ├── public
 │   ├── index.html
 │   └── manifest.json
@@ -86,48 +39,60 @@ todoapp
     │   └── index.js
     └─ components
     │   ├── [App.js][5]
-    │   ├── Footer.js
-    │   ├── Link.js
     │   ├── Todo.js
-    │   ├── TodoDeleteButton.js
     │   └── TodoList.js
     ├── containers
-    │    ├── AddTodo.js
-    │    ├── FilterLink.js
-    │    └── VisibleTodo.js
-    │    
+    │    └── AddTodo.js 
     ├── reducers
     │    ├── index.js
-    │    ├── todo.js
-    │    └── visibilityFilter.js
-    ├── index.js
-    └── serviceWorker.js
-    
+    │    └── todo.js
+    └── index.js
+***
+
 ## Agora vamos criar o nosso ponto de entrada da aplicação:
 
 ### Nesse ponto vamos, criar a nossa loja central, que contém todos os estados da aplicação.
 ### O exemplo abaixo é uma adaptação de : <https://github.com/reduxjs/redux/tree/master/examples/todos>
 ###### src/index.js
 
+- [Introduz três princípios básicos:](https://redux.js.org/introduction/three-principles#three-principles)
 
+    - Fonte única da verdade:
+    
 ```javascript
 import React from 'react'
 import { render } from 'react-dom'
+// Note que é necesssario importar o createStrore do redux
 import { createStore } from 'redux'
+// Note que é nessario importa o Provider do react-redux
 import { Provider } from 'react-redux'
 import App from './components/App'
 import rootReducer from './reducers'
 
-//Todos os objetos vão ter como origem esse objeto.
+/*
+* Para garantir esse princípio, no app de entrada do react 
+* construimos esse objeto store, que será responsavel por
+* centralizar os estados da aplicação.
+*/
+
 const store = createStore(rootReducer)
 
 render(
+    // Para que os componentes do react, tenha acesso aos estados
+    // devemos passar o objeto store para o componente <Provider> </Provider> 
+    // e adicionarmos o componente <App/>.
   <Provider store={store}>
     <App />
   </Provider>,
   document.getElementById('root')
 )
 ```
+    
+    - Estado é somente leitura:
+    - Alterações são feitas com funções puras:
+
+
+
 
 ## Vamos criar os nossos componentes:
 [1]: src/components/App.js
@@ -551,7 +516,7 @@ export default connect(
    
    Acesso em: 14, dez. 2019.
    
-   [3]: https://react-redux.js.org/introduction/quick-start
+   [1](https://react-redux.js.org/introduction/quick-start)
    
    Acesso em: 14, dez. 2019.
    
