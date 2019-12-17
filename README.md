@@ -544,10 +544,17 @@ export default connect(
 # Refências:
 
    [1]: https://facebook.github.io/flux/docs/overview
+   
    Acesso em: 14, dez. 2019.
+   
    [2]: https://redux.js.org/introduction/getting-started
+   
    Acesso em: 14, dez. 2019.
+   
    [3]: https://react-redux.js.org/introduction/quick-start
+   
    Acesso em: 14, dez. 2019.
+   
    [4]: https://github.com/reduxjs/redux/tree/master/examples/todos
+   
    Acesso em: 14, dez. 2019
