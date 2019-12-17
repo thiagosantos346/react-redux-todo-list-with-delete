@@ -164,16 +164,19 @@ export default connect(deleteTodo)(TodoList)
 ### As actions são objetos, que representam uma mensagem, que deve ser enviada a um despachador, os nossos reducer, que serão descritos adiante.
 
 ###### src/actions/index.js
-
-
+.
+* Vamos criar um contador, para controlar os * ```id``` * do nosso * ```<TodoList/>```*.*
 ```javascript
 let nextTodoId = 0
-
+```
+*Node que o cada action conta com o nome da ação, em * ```type```* e * e uma carga útil de dados, que pode ser usado para aplicar filtros, ou para servir de parâmtro para o novo objeto.* 
+```javascript
 export const addTodo = text => ({
   type: 'ADD_TODO',
   id: nextTodoId++,
   text
 })
+
 
 export const deleteTodo = id => ({
   type: 'DELETE_TODO',
@@ -181,30 +184,24 @@ export const deleteTodo = id => ({
 })
 ```
 
-###### Note que esses objetos carregam uma mensagem: [type], essa mensagem é o identificador do objeto, para quem esse deve ser destinado no reducer. 
-
 ## Vamos criar os nossos reducers:
 
 ### Reducers são funções puras, que calculam o novo estado de um objeto, com base no estado anterior desse objeto.
 
 ###### src/actions/index.js
 
-###### Como vamos usar mais de um redutor, então usamos o método contido em {combineReducers}, para juntar os redutores, e garantir que tenhamos uma única fonte de dados, e ainda assim podermos modularizar a aplicação.
-
-
+*Caso queira usar mais de um redutor, então use o método: *```{combineReducers}```*.*
 ```javascript
 import { combineReducers } from 'redux'
 import todos from './todos'
-import visibilityFilter from './visibilityFilter'
 
 export default combineReducers({
   todos
 })
 ```
 
-##### Observações: 
- - Note que temos como parâmetro dessa função: 
-     - Estado:
+- Note que temos como parâmetro dessa função: 
+     - Estate:
          -  Esse que deve conter o estado atual da aplicação.
      - Action: 
          - Essa que contém uma string, que identifica uma ação que deve ser executada pelo redutor, caso essa ação exista.
