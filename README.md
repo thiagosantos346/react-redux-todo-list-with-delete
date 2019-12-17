@@ -26,14 +26,14 @@ ou
 ## Instalando a biblioteca Redux
 ```npm install --save redux```
 
+***
 ### O exemplo abaixo é uma adaptação de : <https://github.com/reduxjs/redux/tree/master/examples/todos>
-###### src/index.js
+***
 
 #### [Três princípios básicos:](https://redux.js.org/introduction/three-principles#three-principles)
 ##### [Fonte única da verdade](https://redux.js.org/introduction/three-principles#single-source-of-truth)
 
-###### src/components/App.js
-
+###### src/index.js
 ```javascript
 import React from 'react'
 import { render } from 'react-dom'
@@ -71,8 +71,8 @@ render(
     - Alterações são feitas com funções puras:
 
 #### Vamos criar os nossos componentes:
-##### Componente prinipal da aplicação: ```<App>
-Esse componente é responsavel por agrupar nosso componente:  ```<AddTodo>```   e o ```<VisibleTodoList>```.
+##### Componente prinipal da aplicação: ```<App/>```
+Esse componente é responsavel por agrupar nosso componente:  ```<AddTodo/>```   e o ```<VisibleTodoList/>```.
 
 ###### src/components/App.js
 https://github.com/thiagosantos346/react-redux-todo-list-with-delete/blob/master/todoapp/src/index.js
@@ -91,9 +91,8 @@ const App = () => (
 export default App
 ```
 ##### Componente: ```<Todo/>```
-O componente todo é um item de uma lista de ```<TodoList/>```
+O componente ```<Todo/>``` é um item de uma lista de ```<TodoList/>```.
 ###### src/components/Todo.js
-
 
 ```javascript
 import React from 'react'
@@ -118,34 +117,9 @@ Todo.propTypes = {
 
 export default Todo
 ```
-
-###### src/components/TodoDeleteButton.js
-
-
-```javascript
-import React from 'react'
-import PropTypes from 'prop-types'
-
-const TodoDeleteButton = ({onChange, id}) => (
-    <div>
-        <input
-            type="checkbox"
-            id={id}
-            onChange={onChange}
-        />
-    </div>
-)
-
-TodoDeleteButton.prototype = {
-    onChange: PropTypes.func.isRequired,
-    id : PropTypes.number.isRequired
-}
-
-export default TodoDeleteButton
-```
-
+##### O nosso: ```<TodoList/>```
+Esse componente é uma simples lista de ```<Todo/>``` 
 ###### src/components/TodoList.js
-
 
 ```javascript
 import React from 'react'
@@ -153,19 +127,19 @@ import PropTypes from 'prop-types'
 import Todo from './Todo'
 import { deleteTodo } from '../actions'
 import { connect } from 'react-redux'
-import TodoDeleteButton from './TodoDeleteButton'
 
 
-const TodoList = ({ todos, toggleTodo,  dispatch  }) => (
+const TodoList = ({ todos,  dispatch  }) => (
   <ul>
     {todos.map(todo =>
       <div key={todo.id}>
         <Todo
           {...todo}
-          onClick={() => toggleTodo(todo.id)}
-        />
-        <TodoDeleteButton
-          onChange={() => dispatch(deleteTodo(todo.id))}
+```
+*Ao clicar em um item, a acation* ```deleteTodo()``` *deve ser acionada e criar uma action.
+```javascript
+
+          onClick={() => dispatch(deleteTodo(todo.id))}
         />
       </div>
     )}
@@ -175,12 +149,13 @@ const TodoList = ({ todos, toggleTodo,  dispatch  }) => (
 TodoList.propTypes = {
   todos: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number.isRequired,
-    completed: PropTypes.bool.isRequired,
     text: PropTypes.string.isRequired
   }).isRequired).isRequired,
-  toggleTodo: PropTypes.func.isRequired
 }
 
+```
+*Para isso funcionar temos que conectar o:* ```<TodoList>``` * a nossa action * ```deleteTodo```.
+```javascript
 export default connect(deleteTodo)(TodoList)
 ```
 
@@ -223,8 +198,7 @@ import todos from './todos'
 import visibilityFilter from './visibilityFilter'
 
 export default combineReducers({
-  todos,
-  visibilityFilter
+  todos
 })
 ```
 
@@ -253,13 +227,6 @@ const todos = (state = [], action) => {
           completed: false
         }
       ]
-    case 'TOGGLE_TODO':
-      console.log('TOGGLE_TODO')
-      return state.map(todo =>
-        (todo.id === action.id)
-          ? {...todo, completed: !todo.completed}
-          : todo
-      )
     case 'DELETE_TODO':    
       let newState = []
       
@@ -277,23 +244,6 @@ const todos = (state = [], action) => {
 export default todos
 ```
 
-###### src/actions/visibilityFilter.js
-
-
-```javascript
-import { VisibilityFilters } from '../actions'
-
-const visibilityFilter = (state = VisibilityFilters.SHOW_ALL, action) => {
-  switch (action.type) {
-    case 'SET_VISIBILITY_FILTER':
-      return action.filter
-    default:
-      return state
-  }
-}
-
-export default visibilityFilter
-```
 
 ## Vamos criar os nossos containers:
 
@@ -332,74 +282,6 @@ const AddTodo = ({ dispatch }) => {
 }
 
 export default connect()(AddTodo)
-```
-
-###### src/containers/FilterLink.js
-
-
-```javascript
-import { connect } from 'react-redux'
-import { setVisibilityFilter } from '../actions'
-import Link from '../components/Link'
-
-const mapStateToProps = (state, ownProps) => ({
-  active: ownProps.filter === state.visibilityFilter
-})
-
-const mapDispatchToProps = (dispatch, ownProps) => ({
-  onClick: () => dispatch(setVisibilityFilter(ownProps.filter))
-})
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Link)
-
-```
-
-###### src/containers/FilterLink.js
-
-
-```javascript
-import { connect } from 'react-redux'
-import { toggleTodo } from '../actions'
-import TodoList from '../components/TodoList'
-import { VisibilityFilters } from '../actions'
-
-const getVisibleTodos = (todos, filter) => {
-  switch (filter) {
-    case VisibilityFilters.SHOW_ALL:
-      return todos
-    case VisibilityFilters.SHOW_COMPLETED:
-      return todos.filter(t => t.completed)
-    case VisibilityFilters.SHOW_ACTIVE:
-      return todos.filter(t => !t.completed)
-    case VisibilityFilters.SORT_ITENS:
-      return todos.sort( (a , b) =>{
-        if( a.text < b.text ){
-          return -1
-        }else{
-          return 1
-        }
-      })
-    default:
-      throw new Error('Unknown filter: ' + filter)
-  }
-}
-
-const mapStateToProps = state => ({
-  todos: getVisibleTodos(state.todos, state.visibilityFilter)
-})
-
-const mapDispatchToProps = dispatch => ({
-  toggleTodo: id => dispatch(toggleTodo(id))
-})
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(TodoList)
-
 ```
 
 ### Experimente executar aplicação 
