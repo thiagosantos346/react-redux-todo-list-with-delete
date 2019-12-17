@@ -75,9 +75,7 @@ todoapp
 todoapp
 
 ├── README.md
-
 ├── node_modules
-
 ├── package.json
 ├── .gitignore
 ├── public
@@ -104,8 +102,7 @@ todoapp
     │    └── visibilityFilter.js
     ├── index.js
     └── serviceWorker.js
-
-
+    
 ## Agora vamos criar o nosso ponto de entrada da aplicação:
 
 ### Nesse ponto vamos, criar a nossa loja central, que contém todos os estados da aplicação.
