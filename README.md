@@ -5,7 +5,7 @@
 ## Criando a aplicação ReactJs
 
 ###### Primeiro certifique-se que você tenha o Node.js instalado em sua máquina, abra um terminal e execute o comando:
-    ```node --version```
+```node --version```
 ###### Se o node estiver instaldo, algo como ```v13.3.0```, para instalar [node](https://nodejs.org/) .
  
 - Primeiro vamos criar uma aplicação React npx create-react-app [Nome-Aplicação]:
