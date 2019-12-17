@@ -29,10 +29,11 @@ ou
 ### O exemplo abaixo é uma adaptação de : <https://github.com/reduxjs/redux/tree/master/examples/todos>
 ###### src/index.js
 
-- [Introduz três princípios básicos:](https://redux.js.org/introduction/three-principles#three-principles)
+#### [Três princípios básicos:](https://redux.js.org/introduction/three-principles#three-principles)
+##### [Fonte única da verdade](https://redux.js.org/introduction/three-principles#single-source-of-truth)
 
-    ###### [Fonte única da verdade](https://redux.js.org/introduction/three-principles#single-source-of-truth)
-    
+###### src/components/App.js
+
 ```javascript
 import React from 'react'
 import { render } from 'react-dom'
@@ -54,7 +55,7 @@ import rootReducer from './reducers'
 ```javascript
 const store = createStore(rootReducer)
 ```
-*Para que os componentes do react, tenham acesso aos estados devemos passar o objeto store para o componente: * ```<Provider </Provider>``` *e adicionarmos o componente:* ```<App/>``` *, interno ao provider, veja o codigo abaixo.*
+*Para que os componentes do react, tenham acesso aos estados devemos passar o objeto store para o componente:* ```<Provider </Provider>``` *e adicionarmos o componente:* ```<App/>``` *, interno ao provider, veja o codigo abaixo.*
 
 ```javascript
 render(
@@ -69,9 +70,12 @@ render(
     - Estado é somente leitura:
     - Alterações são feitas com funções puras:
 
-## Vamos criar os nossos componentes:
-[src/components/App.js](~/react-redux-todo-list-with-delete/blob/master/todoapp/src/index.js)
+#### Vamos criar os nossos componentes:
+##### Componente prinipal da aplicação: ```<App>
+Esse componente é responsavel por agrupar nosso componente:  ```<AddTodo>```   e o ```<VisibleTodoList>```.
 
+###### src/components/App.js
+https://github.com/thiagosantos346/react-redux-todo-list-with-delete/blob/master/todoapp/src/index.js
 
 ```javascript
 import React from 'react'
@@ -86,7 +90,8 @@ const App = () => (
 
 export default App
 ```
-
+##### Componente: ```<Todo/>```
+O componente todo é um item de uma lista de ```<TodoList/>```
 ###### src/components/Todo.js
 
 
@@ -95,13 +100,13 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 const Todo = ({ onClick, completed, text }) => (
-  <li
-    onClick={onClick}
-    style={{
-      textDecoration: completed ? 'line-through' : 'none'
-    }}
+<li
+```
+Em um evento de click, queremos disparar a nossas (actions)[]
+```javascript
+    onClick={onClick} 
   >
-    {text}
+   {text}
   </li>
 )
 
