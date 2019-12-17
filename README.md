@@ -11,11 +11,11 @@
 - Primeiro vamos criar uma aplicação React npx create-react-app [Nome-Aplicação]:
     - npx create-react-app todoapp
 - Agora usando o terminal entre na pasta que contém o nome da aplicação feita no passo anterior.
-    
+
+    linux 
     ```cd todoapp``` 
-    ###### Linux
+    Windows 
     ```dir todoapp``` 
-    ###### Windows
     
 - Agora vamos iniciar a aplicação para testar se ocorreu tudo bem.     
 
@@ -23,30 +23,48 @@
 ou
 ```yarn start```
 
-
 ## Instalando a biblioteca Redux
-    - npm install --save redux
+```npm install --save redux```
     
 ***
-todoapp
+[todoapp](https://github.com/thiagosantos346/react-redux-todo-list-with-delete/tree/master/todoapp)
+
 ├── [README.md](https://github.com/thiagosantos346/react-redux-todo-list-with-delete/blob/master/README.md)
-├── package.json
-├── public
-│   ├── index.html
-│   └── manifest.json
+
+├── [package.json](https://github.com/thiagosantos346/react-redux-todo-list-with-delete/blob/master/todoapp/package.json)
+
+├── [public](https://github.com/thiagosantos346/react-redux-todo-list-with-delete/tree/master/todoapp/public)
+
+│   ├── [index.html](https://github.com/thiagosantos346/react-redux-todo-list-with-delete/blob/master/todoapp/public/index.html)
+
+│   └── [manifest.json](https://github.com/thiagosantos346/react-redux-todo-list-with-delete/blob/master/todoapp/public/manifest.json)
+
 └── src
+
     ├── actions
+    
     │   └── index.js
+    
     └─ components
+    
     │   ├── [App.js][5]
+    
     │   ├── Todo.js
+    
     │   └── TodoList.js
+    
     ├── containers
-    │    └── AddTodo.js 
+    
+    │    └── AddTodo.js
+    
     ├── reducers
+    
     │    ├── index.js
+    
     │    └── todo.js
+    
     └── index.js
+    
 ***
 
 ## Agora vamos criar o nosso ponto de entrada da aplicação:
