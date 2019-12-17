@@ -53,7 +53,10 @@ import rootReducer from './reducers'
 
 ```javascript
 const store = createStore(rootReducer)
+```
+*Para que os componentes do react, tenham acesso aos estados devemos passar o objeto store para o componente: * ```<Provider </Provider>``` *e adicionarmos o componente:* ```<App/>``` *, interno ao provider, veja o codigo abaixo.*
 
+```javascript
 render(
   <Provider store={store}>
     <App />
@@ -61,87 +64,27 @@ render(
   document.getElementById('root')
 )
 ```
-*Para que os componentes do react, tenham acesso aos estados devemos passar o objeto store para o componente: * ```<Provider </Provider>``` *e adicionarmos o componente:* ```<App/>``` *, interno ao provider, veja o codigo abaixo. .
+
     
     - Estado é somente leitura:
     - Alterações são feitas com funções puras:
-    
+
 ## Vamos criar os nossos componentes:
 [src/components/App.js](~/react-redux-todo-list-with-delete/blob/master/todoapp/src/index.js)
 
 
 ```javascript
 import React from 'react'
-import Footer from './Footer'
 import AddTodo from '../containers/AddTodo'
-import VisibleTodoList from '../containers/VisibleTodoList'
 
 const App = () => (
   <div>
     <AddTodo />
     <VisibleTodoList />
-    <Footer />
   </div>
 )
 
 export default App
-```
-
-###### src/components/Footer.js
-
-
-```javascript
-import React from 'react'
-import FilterLink from '../containers/FilterLink'
-import { VisibilityFilters } from '../actions'
-
-const Footer = () => (
-  <div>
-    <span>Show: </span>
-    <FilterLink filter={VisibilityFilters.SHOW_ALL}>
-      All
-    </FilterLink>
-    <FilterLink filter={VisibilityFilters.SHOW_ACTIVE}>
-      Active
-    </FilterLink>
-    <FilterLink filter={VisibilityFilters.SHOW_COMPLETED}>
-      Completed
-    </FilterLink>
-    <FilterLink filter={VisibilityFilters.SORT_ITENS}>
-      Sort
-    </FilterLink>
-  </div>
-)
-
-export default Footer
-```
-
-###### src/components/Link.js
-
-
-```javascript
-import React from 'react'
-import PropTypes from 'prop-types'
-
-const Link = ({ active, children, onClick }) => (
-    <button
-       onClick={onClick}
-       disabled={active}
-       style={{
-           marginLeft: '4px',
-       }}
-    >
-      {children}
-    </button>
-)
-
-Link.propTypes = {
-  active: PropTypes.bool.isRequired,
-  children: PropTypes.node.isRequired,
-  onClick: PropTypes.func.isRequired
-}
-
-export default Link
 ```
 
 ###### src/components/Todo.js
@@ -256,24 +199,6 @@ export const deleteTodo = id => ({
   type: 'DELETE_TODO',
   id
 })
-
-export const setVisibilityFilter = filter => ({
-  type: 'SET_VISIBILITY_FILTER',
-  filter
-})
-
-export const toggleTodo = id => ({
-  type: 'TOGGLE_TODO',
-  id
-})
-
-export const VisibilityFilters = {
-  SHOW_ALL: 'SHOW_ALL',
-  SHOW_COMPLETED: 'SHOW_COMPLETED',
-  SHOW_ACTIVE: 'SHOW_ACTIVE',
-  SORT_ITENS: 'SORT_ITENS',
-}
-
 ```
 
 ###### Note que esses objetos carregam uma mensagem: [type], essa mensagem é o identificador do objeto, para quem esse deve ser destinado no reducer. 
