@@ -33,7 +33,6 @@
 # Cirando a nova estrutura:
 
 #### Nesse momento deve existir essa estrutura de pastas:
-
 ```
 todoapp
 ├── README.md
@@ -73,10 +72,12 @@ todoapp
 
 #### Adicione alguns arquivos, para que você tenha essa estrutura de arquivos.
 
-```
 todoapp
+
 ├── README.md
+
 ├── node_modules
+
 ├── package.json
 ├── .gitignore
 ├── public
@@ -86,7 +87,7 @@ todoapp
     ├── actions
     │   └── index.js
     └─ components
-    │   ├──App.js
+    │   ├── [App.js][5]
     │   ├── Footer.js
     │   ├── Link.js
     │   ├── Todo.js
@@ -103,7 +104,6 @@ todoapp
     │    └── visibilityFilter.js
     ├── index.js
     └── serviceWorker.js
-```
 
 
 ## Agora vamos criar o nosso ponto de entrada da aplicação:
@@ -133,8 +133,7 @@ render(
 ```
 
 ## Vamos criar os nossos componentes:
-
-###### src/components/App.js
+[1]: src/components/App.js
 
 
 ```javascript
@@ -547,25 +546,18 @@ export default connect(
 
 # Refências:
 
-   [1] : https://facebook.github.io/flux/docs/overview
-   
-   
-   Acesso em: 14, dez. 2019.
-   
-   
-   [2] : https://redux.js.org/introduction/getting-started
-   
+   [1]: https://facebook.github.io/flux/docs/overview
    
    Acesso em: 14, dez. 2019.
    
-   
-   [3] : https://react-redux.js.org/introduction/quick-start
-   
+   [2]: https://redux.js.org/introduction/getting-started
    
    Acesso em: 14, dez. 2019.
    
+   [3]: https://react-redux.js.org/introduction/quick-start
    
-   [4] : https://github.com/reduxjs/redux/tree/master/examples/todos
+   Acesso em: 14, dez. 2019.
    
+   [4]: https://github.com/reduxjs/redux/tree/master/examples/todos
    
    Acesso em: 14, dez. 2019.
